@@ -214,12 +214,14 @@ function calculateTotal(x,y){
  }
  //Checks if even or odd
  function EvenOrOdd(x){
-     if (x % 2 === 0){
-         alert("You're number is even")
-     }
-     else {
-         alert("You're number is odd")
-     }
+     // if (x % 2 === 0){
+     //     alert("You're number is even")
+     // }
+     // else {
+     //     alert("You're number is odd")
+     // }
+     alert((x % 2===0) ? "You're number is even":"Your number is odd");
+
  }
  let question;
  let answer = confirm("Do you want to enter a number?")
