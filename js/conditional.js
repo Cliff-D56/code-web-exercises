@@ -1,61 +1,61 @@
-"use strict";
+// "use strict";
 
-/* ########################################################################## */
-
-/**
- * TODO:
- * Create a function named `analyzeColor` that accepts a string that is a color
- * name as input. This function should return a message which relates to the
- * color stated in the argument of the function. For colors you do not have
- * responses written for, return a string stating so
- *
- * Example:
- *  > analyzeColor('blue') // returns "blue is the color of the sky"
- *  > analyzeColor('red') // returns "Strawberries are red"
- *
- *
- *  > analyzeColor('cyan') // returns "I don't know anything about cyan"
- *
- * You should use an if-else-if-else block to return different messages.
- *
- * Test your function by passing various string literals to it and
- * console.logging the function's return value
- */
-function analyzeColor(x){
-    if (randomColor==="blue"){
-        alert("I like blue");
-    }
-    else if(randomColor==="red"){
-        alert("I hate red");
-        }
-    else if(randomColor==='cyan'){
-        alert("I love cyan");
-        }
-    else if(randomColor==="yellow"){
-        alert("I drank a yellow orange");
-        }
-    else{
-        alert("Who cares about your color");
-    }
-}
-// Don't change the next two lines!
-// These lines create two variables for you:
-// - `colors`: a list of the colors of the rainbow
-// - `randomColor`: contains a single random color value from the list (this
-//                  will contain a different color every time the page loads)
+// /* ########################################################################## */
+//
+// /**
+//  * TODO:
+//  * Create a function named `analyzeColor` that accepts a string that is a color
+//  * name as input. This function should return a message which relates to the
+//  * color stated in the argument of the function. For colors you do not have
+//  * responses written for, return a string stating so
+//  *
+//  * Example:
+//  *  > analyzeColor('blue') // returns "blue is the color of the sky"
+//  *  > analyzeColor('red') // returns "Strawberries are red"
+//  *
+//  *
+//  *  > analyzeColor('cyan') // returns "I don't know anything about cyan"
+//  *
+//  * You should use an if-else-if-else block to return different messages.
+//  *
+//  * Test your function by passing various string literals to it and
+//  * console.logging the function's return value
+//  */
+// function analyzeColor(x){
+//     if (randomColor==="blue"){
+//         alert("I like blue");
+//     }
+//     else if(randomColor==="red"){
+//         alert("I hate red");
+//         }
+//     else if(randomColor==='cyan'){
+//         alert("I love cyan");
+//         }
+//     else if(randomColor==="yellow"){
+//         alert("I drank a yellow orange");
+//         }
+//     else{
+//         alert("Who cares about your color");
+//     }
+// }
+// // Don't change the next two lines!
+// // These lines create two variables for you:
+// // - `colors`: a list of the colors of the rainbow
+// // - `randomColor`: contains a single random color value from the list (this
+// //                  will contain a different color every time the page loads)
 let colors = ["yellow","cyan","blue","red","violet"];
 let randomColor = colors[Math.floor(Math.random() * colors.length)];
-/**
- * TODO:
- * Pass the `randomColor` variable to your 'analyzeColor' function and console.log the results.
- * You should see a different message every time you refresh the page
- */
-analyzeColor(randomColor);
-console.log(randomColor);
-/**
- * TODO:
- * Comment out the code above, and refactor your function to use a switch-case statement
- */
+// /**
+//  * TODO:
+//  * Pass the `randomColor` variable to your 'analyzeColor' function and console.log the results.
+//  * You should see a different message every time you refresh the page
+//  */
+// analyzeColor(randomColor);
+// console.log(randomColor);
+// /**
+//  * TODO:
+//  * Comment out the code above, and refactor your function to use a switch-case statement
+//  */
 // function analyzeColor(x){
 //     switch (randomColor){
 //     case ("blue"):
@@ -64,14 +64,18 @@ console.log(randomColor);
 //     case ("red"):
 //         alert("I hate red")
 //         break
-//     case ('cy;an'):
+//     case ('cyan'):
 //         alert("I love cyan")
 //         break;
 //     default:
-//         alert("Who cares about your color")
+//         alert("Who cares about "+randomColor)
 //         break;
 //     }
+//     console.log(randomColor)
 // }
+// randomColor = prompt("What's your favorite color?");
+// analyzeColor(randomColor);
+
 /**
  * TODO:
  * Prompt the user for a color when the page loads, and pass the input from the
@@ -100,7 +104,38 @@ console.log(randomColor);
  * Test your function by passing it various values and checking for the expected
  * return value.
  */
+let initial;
+let total;
+let discount;
+let luckyNumber;
+function calculateTotal(x,y){
+     x = luckyNumber;
+     y = initial;
+    switch(x){
+        case(1):
+            discount = .90;
+            break;
+        case(2):
+            discount = .75;
+            break;
+        case(3):
+            discount = .65;
+            break
+        case(4):
+            discount = .5;
+            break
+        case(5):
+            discount = 0;
+            break
+    }
+    total = initial * discount;
+    return total;
+}
 
+// calculateTotal(4,57)
+// console.log(total);
+// let hello = total ===0?"I love that number":"I hate that fucking number";
+// console.log(hello)
 /**
  * TODO:
  * Uncomment the line below to generate a random number between 0 and 5.
@@ -110,8 +145,12 @@ console.log(randomColor);
  * price before the discount was, and what their price after the discount is.
  */
 // Generate a random number between 0 and 6
-// var luckyNumber = Math.floor(Math.random() * 6);
-
+//  luckyNumber = Math.floor(Math.random() * 6);
+//  initial = parseInt(prompt("What's your total?"));
+//  calculateTotal(luckyNumber,initial);
+//  alert("Your lucky number was: "+luckyNumber);
+//  alert("Your initial cost was "+initial);
+//  alert("Your current cost is: "+total);
 /**
  * TODO:
  * Write some JavaScript that uses a `confirm` dialog to ask the user if they
@@ -130,3 +169,73 @@ console.log(randomColor);
  * Can you refactor your code to use functions?
  * HINT: The way we prompt for a value could be improved
  */
+// let answer = confirm("Would you like to Enter a number?");
+// let question;
+// if (answer === true){
+//     // console.log(question)
+//     question = parseInt(prompt("Enter your number: "));
+//     if(isNaN(question)) {
+//         alert("That is not a number")
+//     } else {
+//         alert(question + 100);
+//         if (question % 2 === 0){
+//             alert("Your number is even");
+//         } else if (question % 2 === 1){
+//             alert("Its odd")
+//         }
+//         if (question > 0){
+//             alert("Your number is pos")
+//         } else if (question < 0){
+//             alert("Your number is neg")
+//         }
+//     }
+// }
+//  else {
+//     alert("ok")
+// }
+ //Checks if positive or neg
+ function PosOrNeg(x){
+         if(x === 0) {
+             alert("Your number is 0.")
+         }
+         else if(x > 0) {
+             alert("Your number is positive")
+         }
+         else if(x < 0) {
+             alert("Your number is negative")
+         }
+         else{
+             alert("WTF")
+         }
+ }
+ //Adds 100 to number
+ function Plus100(x){
+     alert("Your number plus 100 is: " + (x +100))
+ }
+ //Checks if even or odd
+ function EvenOrOdd(x){
+     if (x % 2 === 0){
+         alert("You're number is even")
+     }
+     else {
+         alert("You're number is odd")
+     }
+ }
+ let question;
+ let answer = confirm("Do you want to enter a number?")
+ //If they click Ok
+ if (answer === true) {
+     question = parseInt(prompt("Please enter your number"));
+     console.log(question)
+     if (isNaN(question)){
+         alert("Your response is not a number")
+     }
+     else{
+         PosOrNeg(question);
+         Plus100(question);
+         EvenOrOdd(question);
+     }
+ }
+ else {
+     alert("You suck")
+ }
