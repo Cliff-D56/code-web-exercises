@@ -62,30 +62,32 @@ let sk = "KS";
 let Spades = [sa,s2,s3,s4,s5,s6,s7,s8,s9,s10,sj,sq,sk];
 
 //Creates Jokers
-let bj = "BJ";
-let lj = "LJ";
+let bj = "B*";
+let lj = "L*";
 const Jokers = [bj,lj];
 //Creates Deck
 let deck = Hearts.concat(Diamonds,Spades,Clubs,Jokers);
 
 //Creates Hands
-let player1hand=[];
-let player2hand=[];
-let player3hand=[];
-let player4hand=[];
+let player1hand;
+let player2hand;
+let player3hand;
+let player4hand;
 function shuffler(x){
+    let cards=[];//Empty hand
     for (let i = 0; i < 13; i++){
         let random = Math.floor(Math.random() * (deck.length));
-        let card = deck.splice(random,1);
-        card.toString();
+        let card = deck.splice(random,1);//Picks random index then slices it for card
+        //card.toString();
         cards.push(card);
     }
-    console.log(cards);
-    //cards.sort();
+    //console.log(cards);
+    cards.sort();
     x = cards;
     return x;
 }
-shuffler(player1hand);
-shuffler(player2hand);
-shuffler(player3hand);
-shuffler(player4hand);
+// Assigns Hands
+player1hand=shuffler();
+player2hand=shuffler();
+player3hand=shuffler();
+player4hand=shuffler();
