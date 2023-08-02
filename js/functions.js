@@ -83,7 +83,7 @@ function calculateTip (tipPercent,total){
 alert("Your tip will be: $"+calculateTip(
     (parseInt(prompt("What percent are you trying to tip?"))*.01),
 parseInt(prompt("how much was your total"))
-))
+).toFixed(2));
 
 /**
  * TODO:
@@ -99,7 +99,8 @@ parseInt(prompt("how much was your total"))
  *
  * > applyDiscount(45.99, 0.12) // 40.4712
  */
-function applyDiscount(originalPrice,discountPercent){
-    return originalPrice * discountPercent;
-}
-applyDiscount(7893,.34);
+// function applyDiscount(originalPrice,discountPercent){
+//     return originalPrice * discountPercent;
+// }
+let applyDiscount=(originalPrice,discountPercent)=>originalPrice-(originalPrice*discountPercent);
+console.log(applyDiscount(45.99, .12));

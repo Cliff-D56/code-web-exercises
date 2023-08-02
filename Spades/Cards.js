@@ -104,7 +104,7 @@
         card.classList.add("card")
         card.id = cardDict[i];
         card.name= cardDict[i];
-        let imgsrc= "img/"+[0]+".jpeg;"
+        let imgsrc= "img/"+i+".jpeg";
         card.innerHTML=`
             <img src="${imgsrc}">
         `;
