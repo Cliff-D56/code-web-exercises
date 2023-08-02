@@ -1,0 +1,17 @@
+*{
+    /*NEED*/
+    box-sizing: border-box; /*Only applies to padding*//
+}
+img{
+    max-width: 100%;/*based on parent*/
+}
+.card{
+    aspect-ratio: 350/497;/*will adjust height or width to match ratio*/
+    width: 100px
+}
+#cardHolder{
+    display:flex;/* Allows parent control of child element and typically goes horizontal across page*/
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: space-between;
+}
