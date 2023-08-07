@@ -74,7 +74,7 @@
     let player3hand;
     let player4hand;
 
-    function shuffler() {
+    function shuffler(x) {
         let cards = [];//Empty hand
         for (let i = 0; i < 13; i++) {
             let random = Math.floor(Math.random() * (deck.length));
@@ -82,6 +82,7 @@
             //card.toString();
             cards.push(card);
         }
+        x.classList.add(x+"hand")
         //console.log(deck);
         cards.sort();
         //x = cards;
@@ -115,7 +116,7 @@
     let html = `<div></div>`
     //console.log(cardDict);
     // Assigns Hands
-//     player1hand = shuffler();
-//     player2hand = shuffler();
-//     player3hand = shuffler();
-//     player4hand = shuffler();
+    player1hand=shuffler(1);
+    player2hand=shuffler(2);
+    player3hand=shuffler(3);
+    palshuffler(4);
