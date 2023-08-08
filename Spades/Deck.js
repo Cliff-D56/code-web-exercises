@@ -16,6 +16,9 @@ class Deck{
             this.deck.push(new Card(suits[i],values[j]))
             // if (suits ==="Hearts"&&values ==="2"){
             //     continue;
+            if(this.suits==="Hearts" && this.values===2){
+                this.deck.pop();
+            }
             }
 
         //const remove2H=this.deck.find(this.deck,suits==="Hearts",values==="2")

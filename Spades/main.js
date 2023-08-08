@@ -3,3 +3,4 @@ import {Deck} from "./Deck.js";
     const mydeck = new Deck()
     console.log(mydeck)
 })();
+
