@@ -13,11 +13,16 @@ class Deck{
         //Runs through each Suit
     for(let i=0;i<suits.length;i++){
         for(let j=0;j<values.length;j++){
-        this.deck.push(new Card(suits[i],values[j]))
+            this.deck.push(new Card(suits[i],values[j]))
+            // if (suits ==="Hearts"&&values ==="2"){
+            //     continue;
+            }
+
+        //const remove2H=this.deck.find(this.deck,suits==="Hearts",values==="2")
+        //console.log(remove2H)
         }
     }
     //Replaces 2 of Hearts and Diamonds with Big Joker and Little Joker
-    }
 }
 
 export {Deck}
