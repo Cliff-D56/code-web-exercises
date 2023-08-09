@@ -1,5 +1,6 @@
-//(function() {
+(function() {
     "use strict";
+
 
     /**
      * TODO:
@@ -12,8 +13,8 @@
      *  > console.log(person.lastName) // "Sanchez"
      */
     let person = {
-        firstname:"Clifford",
-        lastname:"Gardner",
+        firstname:"Necee",
+        lastname:"Holden",
         sayHello:function (){
             return `Hello ${this.firstname} ${this.lastname}!!`;
         }
@@ -141,4 +142,5 @@ books.forEach(function (book,i){
     console.log("Book #: "+(i+1))
     showbookinfo(book);
 })
-//})();
+})();
+(function (){})();
