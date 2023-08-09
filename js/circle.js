@@ -14,7 +14,7 @@
 
         logInfo: function (doRounding) {
             // TODO: complete this method.
-            if (doRounding === true){
+            if (doRounding){
                 this.result = Math.round(this.result)
             }
             // If doRounding is true, round the result to the nearest integer.
@@ -34,10 +34,17 @@
     // TODO: Change the radius of the circle to 5.
 
     // log info about the circle
-circle.radius = 12;
+circle.radius = 5;
 circle.result = circle.getArea()
     console.log("Raw circle information");
     circle.logInfo(false);
     console.log("Circle information rounded to the nearest whole number");
     circle.logInfo(true);
 //})();
+
+/*
+ * Complete the 'fizzBuzz' function below.
+ *
+ * The function accepts INTEGER n as parameter.
+ */
+
