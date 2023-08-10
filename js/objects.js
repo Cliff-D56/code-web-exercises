@@ -12,6 +12,7 @@
      *  > console.log(person.firstName) // "Rick"
      *  > console.log(person.lastName) // "Sanchez"
      */
+
     let person = {
         firstname:"Necee",
         lastname:"Holden",
