@@ -5,7 +5,7 @@
     <title>Register With Us</title>
 </head>
 <body>
-    <form method="post" action="https://request-inspector.glitch.me"/>
+    <form method="post" action="https://request-inspector.glitch.me">
         <h1>Register With us</h1>
         <label for="email">
           Email:  <input type="text" id="email" name="email" placeholder="Enter your email">
@@ -17,7 +17,7 @@
         <br>
         <br>
         <label>
-            Bio: <textarea name="bio" placeholder="Hello"></textarea>
+            Bio: <textarea name="bio" placeholder="Hello" maxlength="50"></textarea>
         </label>
         <hr>
         <h3>How did you hear about us?</h3>
@@ -35,7 +35,7 @@
         </label>
         <h3>What Web Browser are you using?</h3>
         <label for="Web-Browser">
-            <select id="Web-Browser" name="Web-Browser"required>
+            <select id="Web-Browser" name="Web-Browser" required>
                 <option disabled selected value="">Choose your Browser</option>
                 <option value="Google Chrome">Google Chrome</option>
                 <option value="Microsoft Edge">Microsoft Edge</option>
