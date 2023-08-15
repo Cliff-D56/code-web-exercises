@@ -2,3 +2,42 @@
     color: blue; /* single line comment */
     text-decoration: underline;
 }
+h1{
+    text-align: center;
+}
+h2 {
+    color: #00FF00;
+    text-decoration: underline;
+}
+@font-face {
+    font-family: myFirstFont;
+    src: url("fonts.withgoogle.com/tilt");
+}
+body {
+    background-color: skyblue;
+    background-image: url("../Spades/img/TableTop.jpeg");
+    color: #FFFFFF;
+    font-family: myFirstFont;
+}
+
+ul {
+    list-style: square;
+}
+ol {
+    list-style-type: upper-roman;
+}
+table{
+    font-size: large;
+}
+td{
+    padding: 10px;
+}
+a:hover{
+    color: #00FF00;
+}
+a:visited{
+    color: purple;
+}
+footer>a{
+    font-size: 100px;
+}
