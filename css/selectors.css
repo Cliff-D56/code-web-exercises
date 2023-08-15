@@ -28,3 +28,11 @@ em {
 .article>a {
     float:right;
 }
+body {
+    font-family: 'Tilt Prism';
+    font-size: 20px;
+}
+.fancy-header{
+    font-weight: bolder;
+    font-size: 50px;
+}
