@@ -16,8 +16,8 @@ h2 {
 body {
     background-color: skyblue;
     background-image: url("../Spades/img/arianne-may-sapalaran-chess5.jpg");
-    background-repeat: no-repeat;
-    background-size: 947px 1415px;
+    /*background-repeat: repeat;*/
+    background-size: contain;
     color: #00F;
     /*font-family: myFirstFont;*/
     font-family: 'Tilt Prism', cursive;
@@ -39,7 +39,7 @@ a:hover{
     color: #00FF00;
 }
 a:visited{
-    color: deeppink;
+    color: #FF1493FF;
 }
 footer>a{
     font-size: 20px;

@@ -31,6 +31,8 @@ em {
 body {
     font-family: 'Tilt Prism';
     font-size: 20px;
+    background-color: black;
+    color: #FFFFFF;
 }
 .fancy-header{
     font-weight: bolder;
