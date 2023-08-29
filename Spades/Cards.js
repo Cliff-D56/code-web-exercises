@@ -119,4 +119,4 @@
     player1hand=shuffler(1);
     player2hand=shuffler(2);
     player3hand=shuffler(3);
-    palshuffler(4);
+    player4hand=shuffler(4);
