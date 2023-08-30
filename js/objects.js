@@ -101,7 +101,7 @@ books.push(createBook("Purple","Blue","Guy"));
 books.forEach(function (book,i){
     console.log(`Book # ${i+1}`);
     console.log(`Title: ${book.title}`);
-    console.log(`Author: ${book.author.firstname} ${book.author.lastname}`);;
+    console.log(`Author: ${book.author.firstname} ${book.author.lastname}`);
 })
 
     /**
