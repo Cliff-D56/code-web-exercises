@@ -41,3 +41,19 @@ totalPets.forEach(function (totalPet){
     total += totalPet.pets;
 })
     console.log(total);
+
+let convertLocationToObject=(x)=>{
+    let city1 = x.split(",")
+    let properities = ["cityName","stateName"]
+    let cities={
+    }
+   cities =  Object.fromEntries(properities.map((key, index) => [key, city1[index]]));
+    console.log(cities);
+}
+convertLocationToObject("Austin, Texas") // {cityName: “Austin”, stateName: “Texas”}
+convertLocationToObject("Auburn, New York") // {cityName: “Auburn”, stateName: “New York”}
+
+let triple = (x)=>x*3;
+triple(5) //15
+triple(12) //26
+triple(-2) // -6
