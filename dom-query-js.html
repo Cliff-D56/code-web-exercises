@@ -24,10 +24,14 @@
     pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
     culpa qui officia deserunt mollit anim id est laborum.
 </p>
-<button id="hi1" type="submit">Add Header</button>
+<form id="purple">
+    <button id="hi1" type="submit">Add Header</button>
+    <input type="text" id="textInput"name="hi9">
+</form>
 <button id="hi2" type="submit">Change subheader</button>
 <button id="hi3" type="submit">turn items different colors</button>
 <button id="hi4" type="submit">Change paragraph</button>
+<input type="checkbox" id="checkInput">
 <script>
     (function() {
         "use strict";
@@ -65,8 +69,29 @@
 
         // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
         let hi =()=>{subParagraphs[0].innerText="Mission Accomplished!"}
-        document.getElementById("hi4").addEventListener('click',hi)
+        document.addEventListener('keydown',hi)
+        let input1 = document.getElementById("textInput");
+        input1.addEventListener("keydown", (event)=>{
+            console.log(event.key)
+        })
+        let input2 =document.getElementById("checkInput");
+        input2.addEventListener("change", function (event) {
+            if(event.target.checked){
+            console.log("hi")
+            }
+            else{
+                console.log("hi2")
+            }
+        })
+        let form1 = document.querySelector("#purple");
+        form1.addEventListener("submit", function(event){
+        event.preventDefault()
+                let password = document.getElementById("textInput").elements.hi9.value
+            console.log(password)
+        }
+        )
     })();
+
 </script>
 </body>
 </html>
