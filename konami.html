@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Konami Code</title>
+</head>
+<body>
+<div>
+    <h1>Konami Code</h1>
+    <h1>LEGO LeftRightLeftRightUpUpDownDownBAEnter</h1>
+    <form>
+        <button id="reset">Click to reset</button>
+    </form>
+</div>
+<div id="papa"></div>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script>
+    "use strict";
+    let code="";
+    let konami = "3838404037393739666513";
+    let lego ="3739373938384040666513";
+
+
+    $("#reset").on('click',function (){
+        code = "";
+        alert(`Cheat Code reseted: ${code}`)
+    })
+    $(document).keyup(function(event){
+        code +=event.keyCode;
+        console.log(code)
+        code.toString();
+        // }
+        switch (code){
+            case konami:
+                $('#papa').html('<iframe width="100%" height="680px" src="https://www.youtube.com/embed/CN_DjYDHEVU?autoplay=1"allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>')
+                break;
+            case lego:
+                $('#papa').html('<iframe width="100%" height="680px" src="https://www.youtube.com/embed/Sc-toKMYPTc?autoplay=1"allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>')
+                break;
+            case "2":
+                $('#papa').html('<iframe width="100%" height="680px" src="https://www.youtube.com/embed/Sc-toKMYPTc?autoplay=1"allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>')
+                break;
+            case "3":
+                $('#papa').html('<iframe width="100%" height="680px" src="https://www.youtube.com/embed/Sc-toKMYPTc?autoplay=1"allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>')
+                break;
+        }
+    // if (code.includes(konami)){
+    //     console.log("YOU'RE A CHEATER!!!!");
+    //     $('body').html('<iframe width="100%" height="750px" src="https://www.youtube.com/embed/Sc-toKMYPTc?autoplay=1"allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>')
+    });
+</script>
+</body>
+</html>

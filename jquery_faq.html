@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .invisible {
+            visibility: hidden;
+        }
+        .highlight{
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+<button id="hi">Click to Hide/Show</button>
+<p>Favorite Anime:</p>
+
+<dl>
+    <dt>Fullmetal Alchemist Brotherhood</dt>
+    <dd>Completed</dd>
+
+    <dt>Bleach</dt>
+    <dd>Ongoing</dd>
+
+    <dt>My Happy Marriage</dt>
+    <dd>Ongoing</dd>
+
+    <dt>Jobless Reincarnation</dt>
+    <dd>Ongoing</dd>
+
+    <dt>Attack On Titan</dt>
+    <dd>Ongoing</dd>
+
+    <dt>Demon Slayer</dt>
+    <dd>Ongoing</dd>
+
+    <dt>My Hero Academia</dt>
+    <dd>Ongoing</dd>
+
+    <dt>Fate/Stay night Unlimited Blade Works</dt>
+    <dd>Completed</dd>
+
+    <dt>Soul Eater</dt>
+    <dd>Completed</dd>
+</dl>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script>
+    $("dd").toggleClass("invisible");
+    $("#hi").on("click",(e)=>{
+        // $("dd").toggleClass("invisible");
+        $(".invisible").css("visibility","unset");
+    })
+    $("dt").on("click",function (){
+        // $("dd").toggleClass("invisible");
+        $(this).toggleClass("highlight");
+    })
+</script>
+</body>
+</html>
