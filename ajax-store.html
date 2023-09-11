@@ -89,7 +89,12 @@ $("#refresh").on("click",function (){
                 console.log(data.length)
                 let html = "";
                 for (let i = 0; i < data.length; i++) {
-                    html += `<tr><td>${data[i].title}</td><td>${data[i].quantity}</td><td>${data[i].price}</td><td>${data[i].categories}</td></tr>`
+                    html += `<tr>
+<td>${data[i].title}</td>
+<td>${data[i].quantity}</td>
+<td>${data[i].price}</td>
+<td>${data[i].categories}</td>
+</tr>`
                     $("#insertProducts").html(html)
                 }
             })
