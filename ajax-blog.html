@@ -8,7 +8,16 @@
     <title>Document</title>
 </head>
 <body>
+<div id="posts"></div>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-
+<script>
+    $.ajax("./data/blog.json").done((data)=>{
+        let html="";
+        for (let i = 0; i < data.length; i++) {
+            html+=`<h1>Title: ${data[i].title}</h1><h3>Content: ${data[i].content}</h3><h3>Categories: ${data[i].categories}</h3><h2>Post on: ${data[i].date}</h2><br><br>`;
+        }
+        $("#posts").html(html)
+    })
+</script>
 </body>
 </html>
