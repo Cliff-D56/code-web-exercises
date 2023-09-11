@@ -10,11 +10,13 @@
     <form>
         <button id="reset">Click to reset</button>
     </form>
+    <h1 id="count"></h1>
 </div>
 <div id="papa"></div>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 <script>
     "use strict";
+    let count=0;
     let code="";
     let konami = "3838404037393739666513";
     let lego ="3739373938384040666513";
@@ -26,8 +28,14 @@
     })
     $(document).keyup(function(event){
         code +=event.keyCode;
-        console.log(code)
+        $("#count").text(`Keys Inputted, ${(code.length/2)}(Reset at 14)`)
         code.toString();
+        count++
+    if (count===14){
+        alert("Maxed out code settings, Resumbit code")
+        code="";
+        count=0;
+    }
         // }
         switch (code){
             case konami:

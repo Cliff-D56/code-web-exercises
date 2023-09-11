@@ -17,8 +17,13 @@
 </head>
 <body>
 <button id="hi">Click to Hide/Show</button>
-<p>Favorite Anime:</p>
-
+<h1>Favorite Anime:</h1>
+<form id="myForm">
+    <input type="text">Type in Pokemon Number
+<button id="search1">Go</button>
+</form>
+<h1 id="plp"></h1>
+<div id="pup"></div>
 <dl>
     <dt>Fullmetal Alchemist Brotherhood</dt>
     <dd>Completed</dd>
@@ -47,17 +52,82 @@
     <dt>Soul Eater</dt>
     <dd>Completed</dd>
 </dl>
-
+<h3>National Parks</h3>
+<ul id="national-parks">
+    <li>Arches</li>
+    <li>Badlands</li>
+    <li>Carlsbad Caverns</li>
+    <li>Denali</li>
+    <li>Everglades</li>
+</ul>
+<h3>State Parks of Texas</h3>
+<ul id="state-parks-texas">
+    <li>Abilene</li>
+    <li>Big Bend</li>
+    <li>Choke Canyon</li>
+    <li>Davis Mountains</li>
+    <li>Enchanted Rock</li>
+</ul>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 <script>
+        var html = "";
+    let hi =()=>{
+        //     '<div class="coffee col-4" id="coffee" style="list-style: none">';
+        // html += '<h1 style="font-size: 30px" class="coffeeName">' + coffee.name + '</h1>';
+        // html += '<h3 class="coffeeRoast">' + coffee.roast + '</h3>';
+        // html += '</div>';
+
+        return html;
+    }
+    $.ajax('https://swapi.dev/api/people/1').done((data)=>{
+        // $("#pup").text(data.name);
+        console.log(data)
+    })
+        let input = document.querySelector("#myForm")
+        let search = 'https://pokeapi.co/api/v2/pokemon/'+input.element.value;
+    let you =()=>{
+        $.ajax(search).done((data)=>{
+            $("#plp").text(data.name)
+            for (let i = 0; i < data.moves.length; i++) {
+                $("#pup").html(html +=(i+1)+" "+data.moves[i].move.name +"<br>")
+            }
+            console.log(data.moves.length)
+        })
+    }
+    $("search1").on("click",you())
+
+
+    //     $.ajax(search).done((data)=>{
+    //     $("#plp").text(data.name)
+    //     for (let i = 0; i < data.moves.length; i++) {
+    //     $("#pup").html(html +=(i+1)+" "+data.moves[i].move.name +"<br>")
+    //     }
+    //     console.log(data.moves.length)
+    // })
+
+
+    $("li").on("click",(e)=>{
+        $(e.target).parent().children().first().css("color","blue")
+    })
+    $('#hi').on('click', () => {
+        $('ul').each((index, element) => {
+            $(element).children().last().css("background-color","blue");
+        });
+    });
+    let papa = document.querySelector("dl")
     $("dd").toggleClass("invisible");
     $("#hi").on("click",(e)=>{
-        // $("dd").toggleClass("invisible");
-        $(".invisible").css("visibility","unset");
+        $("dd").toggleClass("invisible");
+        // $(".invisible").css("visibility","unset");
+        $("li").parent().children().last().css("background-color","blue")
     })
     $("dt").on("click",function (){
         // $("dd").toggleClass("invisible");
         $(this).toggleClass("highlight");
+        console.log(this)
+    })
+    papa.addEventListener("click",function (){
+        $("body").css("background-color","blue");
     })
 </script>
 </body>
