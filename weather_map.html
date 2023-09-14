@@ -17,6 +17,7 @@
 </head>
 <body>
 <div class="page-wrapper">
+
 <!--NAVIGATION BAR-->
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
@@ -32,7 +33,8 @@
         </div>
     </div>
 </nav>
-<!--<input type="text" id="search" placeholder="Enter Address">-->
+
+<!--ZOOM LEVEL CHANGE-->
 <label>Zoom Level
     <select id="search3">
         <option value="5">5</option>
@@ -44,16 +46,13 @@
         <option value="20">20</option>
     </select>
 </label>
-<!--<button id="hide">Hide</button>-->
-<!--<button id="search1">Submit</button>-->
+
+<!--WEATHER CARDS-->
 <div id="insert-weather" class="container-fluid d-flex" style="margin: unset;justify-content: space-evenly;"></div>
 
-
 <!-- The HTML element that serves as the Mapbox container -->
-<div id='map'>
-</div>
+<div id='map'></div>
 
-    <p style="position: absolute; bottom: 0;right: 550px"><span style="font-size: 35px;" id="cord"></span></p>
 <!-- Mapbox JS -->
 <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
 

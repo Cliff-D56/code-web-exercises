@@ -1,7 +1,4 @@
-const BASE_CURRENT_WEATHER_URL = `https://api.openweathermap.org/data/2.5/weather?`
 const BASE_FORECAST_URL=`https://api.openweathermap.org/data/2.5/forecast?&appid=${OPEN_WEATHER_APPID}&`
-// const BASE_FORECAST_CORD_SEARCH = `api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${OPEN_WEATHER_APPID}`
-// const GEOCODE = `http://api.openweathermap.org/geo/1.0/direct?q=${cityname},${statecode},${countrycode}&limit=1&appid=${OPEN_WEATHER_APPID}`
 
 //CREATES MAP
 mapboxgl.accessToken = MAPBOX_API_TOKEN;
@@ -19,8 +16,6 @@ let rain =["light rain", "moderate rain","heavy intensity rain","very heavy rain
 let snow =["light snow","snow","heavy snow","sleet","light shower sleet","shower sleet","light rain and snow","rain and snow","light shower snow","shower snow","heavy shower snow"]
 let mist =["mist","smoke","haze","sand/dust whirls","fog","sand","dust","volcanic ash","squalls","tornado"]
 let clouds =["few clouds","scattered clouds","broken clouds","overcast clouds","clear sky"]
-//GEOCODING BEGINNING
-
 
 //GETS WEATHER BASED ON LAT AND LONG THEN RETURNS CARDS
 let weathersearch =(lat,lng)=>{
@@ -81,22 +76,6 @@ let weatherswitch =(data,i)=>{
     }
     return weathericon
 }
-// map.setCenter([-95.2622,29.9988]);
-// map.setZoom(10);
-// const el = document.createElement('div');
-// el.className = 'marker';
-// el.style.backgroundImage = `url(Spades/img/sketch.png)`;
-// el.style.width = `25px`;
-// el.style.height = `50px`;
-// el.style.backgroundSize = '100%';
-// let marker = new mapboxgl.Marker(el,{draggable:true})
-//     .setLngLat([-95.2622,29.9988])
-//     .addTo(map)
-// marker.on('dragend', function (){
-//     console.log(marker.getLngLat());
-//     $("#cord").text(`Latitude: ${marker.getLngLat().lat},        Latitude: ${marker.getLngLat().lng}`)
-// });
-
 
 // SETS STARTUP LOCATION
 reverseGeocode({lng: -95.2622, lat: 29.9988}, MAPBOX_API_TOKEN).then(function(results) {
@@ -177,8 +156,6 @@ $.get(BASE_FORECAST_URL+`q=Humble, TX,USA`).done((data)=>{
     $("#insert-weather").html(html)
 })
 
-
-
 //NEW MARKER ON CLICK
 map.on('click', (e) => {
     // JSON.stringify(e.lngLat.wrap());
@@ -193,24 +170,7 @@ map.on('click', (e) => {
         .setLngLat([e.lngLat.lng,e.lngLat.lat])
         .addTo(map);
     weathersearch(e.lngLat.lat,e.lngLat.lng)
-// reverseGeocode({lng: e.lngLat.lng, lat: e.lngLat.lat}, MAPBOX_API_TOKEN).then(function(results) {
-//     console.log(results)
-//     let address = {
-//         address:results
-//     }
-//     placeMarkerAndPopup(address,MAPBOX_API_TOKEN,map)
 })
-// });
-// the  geocode method from mapbox-geocoder-utils.js
-// geocode("42223", MAPBOX_API_TOKEN).then(function(result) {
-//     console.log(result);
-//     map.setCenter(result);
-//     map.setZoom(11);
-// });
-
-// reverse geocode method from mapbox-geocoder-utils.js
-
-
 
 //STOPS REFRESH OF PAGE
 let form = document.getElementById("searchform");
