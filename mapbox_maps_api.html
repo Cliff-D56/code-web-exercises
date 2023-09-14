@@ -15,13 +15,34 @@
             width: 100%;
             height: 700px;
         }
+        .invisible{
+            display: none;
+        }
+        .marker {
+            display: block;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            padding: 0;
+            background-image: url("Spades/img/android2.svg");
+            background-size: cover;
+        }
     </style>
 </head>
 <body>
 <h1>My First Mapbox Map!</h1>
 <input type="text" id="search">Enter Address
 <input type="text" id="search2">Enter Description
-<input type="text" id="search3">Enter Zoom Level
+<select id="search3">
+    <option value="5">5</option>
+    <option value="7.5">7.5</option>
+    <option value="10">10</option>
+    <option value="12.5">12.5</option>
+    <option value="15">15</option>
+    <option value="17.5">17.5</option>
+    <option value="20">20</option>
+</select>
+<button id="hide">Hide</button>
 <button id="search1">Submit</button>
 <!-- The HTML element that serves as the Mapbox container -->
 <div id='map'></div>
@@ -31,10 +52,10 @@
 
 <!-- Mapbox Geocoder Util Methods -->
 <script src="js/mapbox-geocoder-utils.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 <script src="js/keys.js"></script>
 <script>
     let info = document.getElementById("search").value;
-    console.log(typeof info)
     mapboxgl.accessToken = MAPBOX_API_TOKEN;
     let map = new mapboxgl.Map({
         container: 'map',
@@ -60,32 +81,61 @@
             map.setZoom(10);
         });
     });
-
     let mapInfo = {
         address: "903 E Commerce St, San Antonio, TX 78205",
         popupHTML: "<p>Favorite Resturant</p>"
     }
+    //CREATES MARKER AND POPUP
     function placeMarkerAndPopup(info, token, map) {
         geocode(info.address, token).then(function(coordinates) {
             let popup = new mapboxgl.Popup()
                 .setHTML(info.popupHTML);
-            let marker = new mapboxgl.Marker()
+            // let marker = new mapboxgl.Marker()
+            //     .setLngLat(coordinates)
+            //     .addTo(map)
+            //     .setPopup(popup);
+            //ljnljdsjndkjlnijn
+            const el = document.createElement('div');
+            el.className = 'marker';
+            el.style.backgroundImage = `url(Spades/img/sketch.png)`;
+            el.style.width = `25px`;
+            el.style.height = `50px`;
+            el.style.backgroundSize = '100%';
+            console.log(el)
+            // popup.addTo(map);
+            new mapboxgl.Marker(el)
                 .setLngLat(coordinates)
-                .addTo(map)
-                .setPopup(popup);
-            popup.addTo(map);
+                .setPopup(popup)
+                .addTo(map);
         });
     }
+    document.getElementById("hide").addEventListener("click",function (){
+        $(".mapboxgl-marker-anchor-center").toggleClass("invisible")
+    })
+    //CHANGE ZOOM LEVEL
+    document.getElementById("search3").addEventListener("change",function (){
+        map.setZoom(document.getElementById("search3").value)
+    })
+    //MAP POPUP ADDITION
     document.getElementById("search1").addEventListener("click",function (){
         mapInfo.address = document.getElementById("search").value;
         mapInfo.popupHTML= document.getElementById("search2").value;
-        map.setZoom(document.getElementById("search3").value)
         geocode(mapInfo.address, MAPBOX_API_TOKEN).then(function (result){map.setCenter(result)})
 
         placeMarkerAndPopup(mapInfo, MAPBOX_API_TOKEN, map);
     })
-
-    // placeMarkerAndPopup(mapInfo, MAPBOX_API_TOKEN, map)
+    //POPULATES MAP BASED OFF RESTURANTS JSON
+    $.ajax("./data/resturants.json").done((data)=>{
+        data.forEach((hi)=>{
+            let details = `<p>Resturant name: ${hi.name}<br>
+            Details: ${hi.info}</p><img src=${hi.pic}>`
+            mapInfo ={
+                address: hi.address,
+                popupHTML: details
+            }
+            placeMarkerAndPopup(mapInfo, MAPBOX_API_TOKEN, map)
+        })
+    })
 
 </script>
 </body>

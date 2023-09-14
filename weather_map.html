@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- Mapbox CSS -->
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+    <!-- Custom CSS -->
+    <link href="css/weather_map.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link href="https://pro.openweathermap.org/data/2.5/forecast/hourly?lat=44.34&lon=10.99&appid=ad398d0687819c15aa0b850f6fa18024}">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css" rel="stylesheet">
+</head>
+<body>
+<div class="page-wrapper">
+<!--NAVIGATION BAR-->
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Weather Map</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" style="display: flex; justify-content: right" id="navbarSupportedContent">
+            <form class="d-flex" id="searchform" role="search">
+                <input class="form-control me-2" type="search" id="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" id="search1" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+</nav>
+<!--<input type="text" id="search" placeholder="Enter Address">-->
+<label>Zoom Level
+    <select id="search3">
+        <option value="5">5</option>
+        <option value="7.5">7.5</option>
+        <option value="10" selected>10</option>
+        <option value="12.5">12.5</option>
+        <option value="15">15</option>
+        <option value="17.5">17.5</option>
+        <option value="20">20</option>
+    </select>
+</label>
+<!--<button id="hide">Hide</button>-->
+<!--<button id="search1">Submit</button>-->
+<div id="insert-weather" class="container-fluid d-flex" style="margin: unset;justify-content: space-evenly;"></div>
+
+
+<!-- The HTML element that serves as the Mapbox container -->
+<div id='map'>
+</div>
+
+    <p style="position: absolute; bottom: 0;right: 550px"><span style="font-size: 35px;" id="cord"></span></p>
+<!-- Mapbox JS -->
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+
+<!-- Mapbox Geocoder Util Methods -->
+<script src="js/mapbox-geocoder-utils.js"></script>
+
+
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script src="js/keys.js"></script>
+<script src="js/weather_map.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+</div>
+</body>
+</html>
