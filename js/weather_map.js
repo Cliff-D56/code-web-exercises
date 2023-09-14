@@ -114,12 +114,10 @@ reverseGeocode({lng: -95.2622, lat: 29.9988}, MAPBOX_API_TOKEN).then(function(re
             .addTo(map)
     });
 });
-
 //SEARCH ADDRESS
 let mapInfo = {
     address: "903 E Commerce St, San Antonio, TX 78205",
 }
-
 //CREATES MARKER IN SEARCH
 function placeMarkerAndPopup(info, token, map) {
 
@@ -153,6 +151,8 @@ document.getElementById("search1").addEventListener("click",function (){
     $(".mapboxgl-marker-anchor-center").addClass("invisible")
     placeMarkerAndPopup(mapInfo, MAPBOX_API_TOKEN, map);
 })
+
+//GEOCODING ENDING
 
 //STARTING SEARCH
 $.get(BASE_FORECAST_URL+`q=Humble, TX,USA`).done((data)=>{
@@ -209,9 +209,6 @@ map.on('click', (e) => {
 // });
 
 // reverse geocode method from mapbox-geocoder-utils.js
-
-
-
 //STOPS REFRESH OF PAGE
 let form = document.getElementById("searchform");
 form.addEventListener("click",function (e){
