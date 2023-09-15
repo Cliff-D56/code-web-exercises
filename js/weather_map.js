@@ -92,10 +92,10 @@ let weatherswitch =(data,i)=>{
 // let marker = new mapboxgl.Marker(el,{draggable:true})
 //     .setLngLat([-95.2622,29.9988])
 //     .addTo(map)
-// marker.on('dragend', function (){
-//     console.log(marker.getLngLat());
-//     $("#cord").text(`Latitude: ${marker.getLngLat().lat},        Latitude: ${marker.getLngLat().lng}`)
-// });
+marker.on('dragend', function (){
+    console.log(marker.getLngLat());
+    weathersearch(marker.getLngLat.lat,marker.getLngLat().lng)
+});
 
 
 // SETS STARTUP LOCATION

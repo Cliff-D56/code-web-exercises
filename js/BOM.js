@@ -14,13 +14,6 @@ let intervalID= setInterval(function (){
 
 
 
-
-let papa =setInterval(
-    funciton,
-    delay)
-
-
-
 // let intervalID2= setInterval(function (){
 //     console.log("Hi")
 // },interval)
