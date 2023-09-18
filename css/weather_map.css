@@ -15,3 +15,11 @@
     background-image: url("Spades/img/android2.svg");
     background-size: cover;
 }
+.navbar1{
+    display: flex;
+    justify-content: right;
+}
+#insert-weather{
+    margin: unset;
+    justify-content: space-evenly;
+}
