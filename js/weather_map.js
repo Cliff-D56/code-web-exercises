@@ -17,6 +17,7 @@ let snow =["light snow","snow","heavy snow","sleet","light shower sleet","shower
 let mist =["mist","smoke","haze","sand/dust whirls","fog","sand","dust","volcanic ash","squalls","tornado"]
 let clouds =["few clouds","scattered clouds","broken clouds","overcast clouds","clear sky"]
 
+
 //GETS WEATHER BASED ON LAT AND LONG THEN RETURNS CARDS
 let weathersearch =(lat,lng)=>{
     $.get(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lng}&appid=${OPEN_WEATHER_APPID}`).done((data)=>{
@@ -28,7 +29,7 @@ let weathersearch =(lat,lng)=>{
             weathericon = weatherswitch(data,i)
 
             html += `<div class="card" style = "width: 16rem;">`
-            html += `<div class="card-header">Date: ${data.list[i].dt_txt}</div>`
+            html += `<div class="card-header"style="background-color: lightskyblue">Date: ${data.list[i].dt_txt}</div>`
             html += `<div class="list-group-item" style="width: 254px;height: 80px;font-size: 14px;text-align: center" >Temperature: ${temp.toFixed()}°F/Feels like: ${ftemp.toFixed()}°F<img src="${weathericon}"class= "card-img-top"alt="hi" style="width: 40px;height: 40px;position: relative;"></div>`
             html += `<ul class="list-group list-group-flush">`
             html += `<li class="list-group-item">Humidity: ${data.list[i].main.humidity}%</li>`
@@ -83,9 +84,9 @@ map.setCenter([-95.2622,29.9988]);
 map.setZoom(10);
 const el = document.createElement('div');
 el.className = 'marker';
-el.style.backgroundImage = `url(Spades/img/sketch.png)`;
-el.style.width = `25px`;
-el.style.height = `50px`;
+el.style.backgroundImage = `url(Spades/img/Tender-Cross-Outline-Vinyl-Decal-Sticker-ND-80679.jpg)`;
+el.style.width = `20px`;
+el.style.height = `22px`;
 el.style.backgroundSize = '100%';
 let marker = new mapboxgl.Marker(el,{draggable:true})
     .setLngLat([-95.2622,29.9988])
@@ -136,7 +137,7 @@ $.get(BASE_FORECAST_URL+`q=Humble, TX,USA`).done((data)=>{
         weathericon = weatherswitch(data,i)
 
         html += `<div class="card" style = "width: 16rem;">`
-        html += `<div class="card-header">Date: ${data.list[i].dt_txt}</div>`
+        html += `<div class="card-header" style="background-color: lightskyblue">Date: ${data.list[i].dt_txt}</div>`
         html += `<div class="list-group-item" style="width: 254px;height: 80px;font-size: 14px;text-align: center" >Temperature: ${temp.toFixed()}°F/Feels like: ${ftemp.toFixed()}°F<img src="${weathericon}"class= "card-img-top"alt="hi" style="width: 40px;height: 40px;position: relative;"></div>`
         html += `<ul class="list-group list-group-flush">`
         html += `<li class="list-group-item">Humidity: ${data.list[i].main.humidity}%</li>`
