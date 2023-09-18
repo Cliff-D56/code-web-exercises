@@ -1,1 +1,1 @@
-# HI
+# Currently studying JavaScript, HTML, CSS, and Java. Would like to branch and Learn Unity

@@ -1,7 +1,4 @@
-const BASE_CURRENT_WEATHER_URL = `https://api.openweathermap.org/data/2.5/weather?`
 const BASE_FORECAST_URL=`https://api.openweathermap.org/data/2.5/forecast?&appid=${OPEN_WEATHER_APPID}&`
-// const BASE_FORECAST_CORD_SEARCH = `api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${OPEN_WEATHER_APPID}`
-// const GEOCODE = `http://api.openweathermap.org/geo/1.0/direct?q=${cityname},${statecode},${countrycode}&limit=1&appid=${OPEN_WEATHER_APPID}`
 
 //CREATES MAP
 mapboxgl.accessToken = MAPBOX_API_TOKEN;
@@ -19,8 +16,6 @@ let rain =["light rain", "moderate rain","heavy intensity rain","very heavy rain
 let snow =["light snow","snow","heavy snow","sleet","light shower sleet","shower sleet","light rain and snow","rain and snow","light shower snow","shower snow","heavy shower snow"]
 let mist =["mist","smoke","haze","sand/dust whirls","fog","sand","dust","volcanic ash","squalls","tornado"]
 let clouds =["few clouds","scattered clouds","broken clouds","overcast clouds","clear sky"]
-//GEOCODING BEGINNING
-
 
 //GETS WEATHER BASED ON LAT AND LONG THEN RETURNS CARDS
 let weathersearch =(lat,lng)=>{
@@ -82,6 +77,7 @@ let weatherswitch =(data,i)=>{
     return weathericon
 }
 
+
 //CREATES STARTUP MARKER
 map.setCenter([-95.2622,29.9988]);
 map.setZoom(10);
@@ -99,6 +95,7 @@ let marker = new mapboxgl.Marker(el,{draggable:true})
 //UPDATES WEATHER INFO ON DRAG
 marker.on('dragend', function (){
     weathersearch(marker.getLngLat().lat,marker.getLngLat().lng)
+
 });
 
 //SEARCH ADDRESS variable
@@ -151,6 +148,7 @@ $.get(BASE_FORECAST_URL+`q=Humble, TX,USA`).done((data)=>{
     }
     $("#insert-weather").html(html)
 })
+
 
 //CHANGE MARKER ON CLICK
 map.on('click', (e) => {
