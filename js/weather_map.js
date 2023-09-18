@@ -9,7 +9,7 @@ let map = new mapboxgl.Map({
     // center: [-98.4916, 29.4252]
 });
 
-//WEATHER ARRAYS
+//WEATHER ARRAYS FOR ICON
 let thunderstorm =["thunderstorm with light rain", "thunderstorm with rain","thunderstorm with heavy rain","light thunderstorm","thunderstorm","heavy thunderstorm", "ragged thunderstorm","thunderstorm with drizzle","thunderstorm with light drizzle","thunderstorm with heavy drizzle"]
 let drizzle =["light intensity drizzle", "drizzle", "heavy intensity drizzle", "light intensity drizzle rain", "drizzle rain", "heavy intensity drizzle rain","shower rain and drizzle","heavy shower rain and drizzle","shower drizzle"]
 let rain =["light rain", "moderate rain","heavy intensity rain","very heavy rain","extreme rain","freezing rain","light intensity shower rain","shower rain","heavy intensity shower rain","ragged shower rain"]
@@ -51,7 +51,7 @@ let geosearch =()=>{
     })
 }
 
-//WEATHER SWITCH FUNCTION
+//WEATHER SWITCH ICON FUNCTION
 let weatherswitch =(data,i)=>{
     let weathericon="";
     switch (true){
@@ -77,46 +77,40 @@ let weatherswitch =(data,i)=>{
     return weathericon
 }
 
-// SETS STARTUP LOCATION
-reverseGeocode({lng: -95.2622, lat: 29.9988}, MAPBOX_API_TOKEN).then(function(results) {
-    geocode(results, MAPBOX_API_TOKEN).then(function(result) {
-        map.setCenter(result);
-        map.setZoom(10);
-        const el = document.createElement('div');
-        el.className = 'marker';
-        el.style.backgroundImage = `url(Spades/img/sketch.png)`;
-        el.style.width = `25px`;
-        el.style.height = `50px`;
-        el.style.backgroundSize = '100%';
-        let marker = new mapboxgl.Marker(el,{draggable:true})
-            .setLngLat(result)
-            .addTo(map)
-    });
+
+//CREATES STARTUP MARKER
+map.setCenter([-95.2622,29.9988]);
+map.setZoom(10);
+const el = document.createElement('div');
+el.className = 'marker';
+el.style.backgroundImage = `url(Spades/img/sketch.png)`;
+el.style.width = `25px`;
+el.style.height = `50px`;
+el.style.backgroundSize = '100%';
+let marker = new mapboxgl.Marker(el,{draggable:true})
+    .setLngLat([-95.2622,29.9988])
+    .addTo(map)
+
+
+//UPDATES WEATHER INFO ON DRAG
+marker.on('dragend', function (){
+    weathersearch(marker.getLngLat().lat,marker.getLngLat().lng)
+
 });
 
-//SEARCH ADDRESS
+//SEARCH ADDRESS variable
 let mapInfo = {
     address: "903 E Commerce St, San Antonio, TX 78205",
 }
 
-//CREATES MARKER IN SEARCH
+
+//MOVES MARKER WITH SEARCH
 function placeMarkerAndPopup(info, token, map) {
 
     geocode(info.address, token).then(function(coordinates) {
         let popup = new mapboxgl.Popup()
             .setHTML(info.popupHTML);
-
-        const el = document.createElement('div');
-        el.className = 'marker';
-        el.style.backgroundImage = `url(Spades/img/sketch.png)`;
-        el.style.width = `25px`;
-        el.style.height = `50px`;
-        el.style.backgroundSize = '100%';
-        // popup.addTo(map);
-        new mapboxgl.Marker(el,{draggable:true})
-            .setLngLat(coordinates)
-            // .setPopup(popup)
-            .addTo(map);
+        marker.setLngLat(coordinates)
     });
 }
 
@@ -129,7 +123,6 @@ document.getElementById("search3").addEventListener("change",function (){
 document.getElementById("search1").addEventListener("click",function (){
     mapInfo.address = document.getElementById("search").value;
     geosearch()
-    $(".mapboxgl-marker-anchor-center").addClass("invisible")
     placeMarkerAndPopup(mapInfo, MAPBOX_API_TOKEN, map);
 })
 
@@ -156,19 +149,10 @@ $.get(BASE_FORECAST_URL+`q=Humble, TX,USA`).done((data)=>{
     $("#insert-weather").html(html)
 })
 
-//NEW MARKER ON CLICK
+
+//CHANGE MARKER ON CLICK
 map.on('click', (e) => {
-    // JSON.stringify(e.lngLat.wrap());
-    $(".mapboxgl-marker-anchor-center").addClass("invisible")
-    const el = document.createElement('div');
-    el.className = 'marker';
-    el.style.backgroundImage = `url(Spades/img/sketch.png)`;
-    el.style.width = `25px`;
-    el.style.height = `50px`;
-    el.style.backgroundSize = '100%';
-    new mapboxgl.Marker(el,{draggable:true})
-        .setLngLat([e.lngLat.lng,e.lngLat.lat])
-        .addTo(map);
+    marker.setLngLat([e.lngLat.lng,e.lngLat.lat])
     weathersearch(e.lngLat.lat,e.lngLat.lng)
 })
 
