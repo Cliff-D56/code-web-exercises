@@ -25,7 +25,7 @@ const greetings =
     ];
 
 function hi(){
-        return greetings[random(0,greetings.length)]
+        return greetings[random(0,greetings.length-1)]
 }
 console.log(hi)
 

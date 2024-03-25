@@ -9,10 +9,30 @@
 </head>
 <body>
 <form id="greet">
+    <label for="input">
     <input type="text" id="input">Type in your Name
-    <button type="submit" id="confirm">Hello</button>
+    </label>
+    <button type="button" id="confirm">Hello</button>
 </form>
 <div id="name"></div>
+<!--<script>-->
+<!--    let input = document.getElementById("input").value;-->
+<!--    let papa = document.querySelector("#confirm")-->
+<!--    let papa1 = document.querySelector("#name")-->
+<!--    console.log(papa)-->
+<!--    papa.addEventListener("click",function (){-->
+<!--        // e.preventDefault()-->
+<!--        alert("shit")-->
+<!--        // console.log(input)-->
+<!--        // papa1.text(hi(),input)-->
+<!--        $("#name").html(`${hi()}, ${input}`)-->
+<!--    })-->
+<!--    // $("#confirm").on("click",function (e){-->
+<!--    //     e.preventDefault()-->
+<!--    //     console.log(input)-->
+<!--    //     $("#name").html(`${hi()}, ${input}`)-->
+<!--    // })-->
+<!--</script>-->
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 <script type="module" src="js/greeting-control.js"></script>
 </body>
